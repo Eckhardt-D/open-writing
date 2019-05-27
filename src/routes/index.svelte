@@ -2,7 +2,6 @@
   import { posts } from "../stores.js";
   import AuthForm from "../components/AuthForm.svelte";
   import TopWriter from "../components/TopWriter.svelte";
-  const isDesktop = window.innerWidth > 700;
 </script>
 
 <style>
@@ -56,7 +55,7 @@
         </div>
         <div class="col-lg-6 p-3">
           <div class="d-none d-lg-block">
-            <AuthForm />
+            <AuthForm loginMode={false} />
           </div>
           <div class="d-lg-none text-center">
             <button class="btn btn-lg btn-primary">SIGN UP TODAY</button>
