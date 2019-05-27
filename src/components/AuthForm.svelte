@@ -18,7 +18,7 @@
       .then(() => {
         authentication.currentUser
           .sendEmailVerification({
-            url: "https://open-writing.firebaseapp.com/auth",
+            url: "https://open-writing.firebaseapp.com/auth/login",
             handleCodeInApp: false
           })
           .then(() => {

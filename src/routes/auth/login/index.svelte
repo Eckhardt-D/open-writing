@@ -1,5 +1,5 @@
 <script>
-  import AuthForm from "../../components/AuthForm.svelte";
+  import AuthForm from "../../../components/AuthForm.svelte";
 </script>
 
 <style>
