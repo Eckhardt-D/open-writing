@@ -1,0 +1,38 @@
+[debug] [2019-05-27T17:43:12.868Z] ----------------------------------------------------------------------
+[debug] [2019-05-27T17:43:12.871Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2019-05-27T17:43:12.871Z] CLI Version:   6.10.0
+[debug] [2019-05-27T17:43:12.871Z] Platform:      darwin
+[debug] [2019-05-27T17:43:12.871Z] Node Version:  v10.3.0
+[debug] [2019-05-27T17:43:12.872Z] Time:          Mon May 27 2019 19:43:12 GMT+0200 (CAT)
+[debug] [2019-05-27T17:43:12.872Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-05-27T17:43:12.884Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-05-27T17:43:12.884Z] > authorizing via signed-in user
+[debug] [2019-05-27T17:43:12.884Z] [iam] checking project open-writing for permissions ["firebase.projects.get"]
+[debug] [2019-05-27T17:43:12.886Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/open-writing:testIamPermissions  
+
+[debug] [2019-05-27T17:43:15.420Z] <<< HTTP RESPONSE 200
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-05-27T17:43:15.436Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/open-writing  
+ 
+[debug] [2019-05-27T17:43:17.431Z] <<< HTTP RESPONSE 200
+[debug] [2019-05-27T17:43:17.433Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/572947146182:getServerAppConfig  
+ 
+[debug] [2019-05-27T17:43:18.431Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: Emulator started at http://localhost:5001
+[debug] [2019-05-27T17:43:18.449Z] [functions] Watching "/Users/johannesdreyer/Desktop/code/open-writing/functions" for Cloud Functions...
+[debug] [2019-05-27T17:43:18.866Z] DEBUG: Functions runtime initialized.
+[debug] [2019-05-27T17:43:18.866Z] DEBUG: Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-27T17:43:19.901Z] DEBUG: firebase-admin has been stubbed.
+[warn] ⚠  Error: Cannot find module '__sapper__/build/server/server'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:594:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:520:25)
+    at Module.require (internal/modules/cjs/loader.js:650:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (/Users/johannesdreyer/Desktop/code/open-writing/functions/index.js:3:20)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+[warn] ⚠  Your function was killed because it raised an unhandled error.
