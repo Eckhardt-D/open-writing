@@ -1,1 +1,4 @@
-@import url(theme.css);
+@import url(/theme.css);
+body {
+  min-height: calc(100vh - 52px);
+}

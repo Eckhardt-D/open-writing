@@ -17,6 +17,14 @@
   .navbar-toggler {
     border: none;
   }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">

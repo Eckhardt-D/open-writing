@@ -6,9 +6,16 @@
   export let segment;
 </script>
 
+<style>
+  .content {
+    padding-top: 53px;
+    min-height: 100vh;
+  }
+</style>
+
 <Nav {segment} />
 
-<main>
+<main class="content">
   <slot />
 </main>
 

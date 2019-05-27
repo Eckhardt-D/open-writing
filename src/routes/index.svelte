@@ -1,7 +1,15 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { posts } from "../stores.js";
   import AuthForm from "../components/AuthForm.svelte";
   import TopWriter from "../components/TopWriter.svelte";
+
+  onMount(async () => {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      location.href = "/feed";
+    }
+  });
 </script>
 
 <style>
@@ -55,10 +63,10 @@
         </div>
         <div class="col-lg-6 p-3">
           <div class="d-none d-lg-block">
-            <AuthForm loginMode={false} />
+            <AuthForm loginMode="false" />
           </div>
           <div class="d-lg-none text-center">
-            <button class="btn btn-lg btn-primary">SIGN UP TODAY</button>
+            <a href="./auth" class="btn btn-lg btn-primary">SIGN UP TODAY</a>
           </div>
         </div>
       </div>

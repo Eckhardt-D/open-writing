@@ -6,10 +6,47 @@
   let errorMessage = "";
   let showSuccess = false;
   let successMessage = "";
+
   let changeMode = () => (loginMode = !loginMode);
+
   let createError = message => {
     showError = true;
     errorMessage = message;
+  };
+
+  let handleErrors = code => {
+    switch (code) {
+      case "auth/email-already-in-use":
+        createError("Email already exists");
+        break;
+      case "auth/invalid-email":
+        createError("Not a valid email address");
+        break;
+      case "auth/weak-password":
+        createError("Your password is too weak.");
+        break;
+      case "auth/invalid-email":
+        createError("User not found");
+        break;
+      case "auth/user-disabled":
+        createError("You are disallowed from this site.");
+        break;
+      case "auth/user-not-found":
+        createError("User not found");
+        break;
+      case "auth/wrong-password":
+        createError("Incorrect e-mail or password");
+        break;
+      default:
+        createError("Something went wrong");
+        break;
+    }
+  };
+
+  let resetForm = () => {
+    email = "";
+    password = "";
+    password2 = "";
   };
 
   let signUpWithEmail = function() {
@@ -22,9 +59,7 @@
             handleCodeInApp: false
           })
           .then(() => {
-            email = "";
-            password = "";
-            password2 = "";
+            resetForm();
             showSuccess = true;
             successMessage = "We have sent a confirmation email";
           })
@@ -33,26 +68,23 @@
             errorMessage = "Error sending email verification";
           });
       })
-      .catch(error => {
-        switch (error.code) {
-          case "auth/email-already-in-use":
-            createError("Email already exists");
-            break;
-          case "auth/invalid-email":
-            createError("Not a valid email address");
-            break;
-          case "auth/weak-password":
-            createError("Your password is too weak.");
-            break;
-          default:
-            createError("Something went wrong");
-            break;
-        }
-      });
+      .catch(error => handleErrors(error.code));
   };
 
   let loginWithEmail = function() {
-    console.log("login in");
+    console.log(loginMode);
+    authentication
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        resetForm();
+        showSuccess = true;
+        successMessage = "Logging in";
+        location.href = "/feed";
+      })
+      .catch(function(error) {
+        let errorCode = error.code;
+        handleErrors(errorCode);
+      });
   };
 
   export let loginMode;
