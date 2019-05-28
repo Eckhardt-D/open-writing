@@ -11,7 +11,8 @@
   let showSuccess = false;
   let successMessage = "";
 
-  let handleAuth = () => {
+  let handleAuth = e => {
+    e.preventDefault();
     if (loginMode) {
       return loginWithEmail();
     }
@@ -19,7 +20,8 @@
     signUpWithEmail();
   };
 
-  let changeMode = () => {
+  let changeMode = e => {
+    e.preventDefault();
     loginMode = !loginMode;
   };
 
@@ -108,7 +110,7 @@
     </h5>
   </div>
   <div class="card-body">
-    <form>
+    <form action="" on:submit={e => e.preventDefault()}>
       <div class="form-group">
         <label for="email">E-mail address</label>
         <input
@@ -139,9 +141,11 @@
         </div>
       {/if}
       <div class="form-group">
-        <button type="button" on:click={handleAuth} class="btn btn-primary">
-           {loginMode ? 'Login' : 'Sign Up'}
-        </button>
+        <input
+          type="submit"
+          value={loginMode ? 'Login' : 'Sign Up'}
+          on:click={handleAuth}
+          class="btn btn-primary" />
       </div>
       {#if showError}
         <div class="alert alert-dismissible alert-danger">
