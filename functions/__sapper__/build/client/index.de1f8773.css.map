@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "index.de1f8773.css",
+  "sources": [
+    "../../../../../../src/routes/auth/login/index.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import AuthForm from \"../../../components/AuthForm.svelte\";\n</script>\n\n<style>\n  .auth-container {\n    min-height: calc(100vh - 91px);\n  }\n</style>\n\n<section\n  class=\"d-flex align-items-center auth-container container-fluid bg-primary\n  my-0\">\n  <AuthForm loginMode={true} />\n</section>\n"
+  ],
+  "names": [],
+  "mappings": "AAKE,eAAe,eAAC,CAAC,AACf,UAAU,CAAE,KAAK,KAAK,CAAC,CAAC,CAAC,IAAI,CAAC,AAChC,CAAC"
+}

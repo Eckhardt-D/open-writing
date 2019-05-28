@@ -1,5 +1,6 @@
 <script>
   export let segment;
+  import { user } from "../stores.js";
 
   const toggleNavbar = e => {
     const mobileNav = document.querySelector(".navbar-collapse");
@@ -10,6 +11,11 @@
       mobileNav.classList.remove("expand");
       mobileNav.classList.add("collapse");
     }
+  };
+
+  const logout = () => {
+    firebase.auth().signOut();
+    return (location.href = "/");
   };
 </script>
 
@@ -50,9 +56,11 @@
       <li class="nav-item">
         <a class="nav-link" href=".">Pricing</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href=".">About</a>
-      </li>
+      {#if $user}
+        <li class="nav-item">
+          <button class="nav-link" on:click={logout}>logout</button>
+        </li>
+      {/if}
     </ul>
   </div>
 </nav>

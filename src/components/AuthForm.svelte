@@ -1,4 +1,8 @@
 <script>
+  export let loginMode;
+  import { user } from "../stores.js";
+  import { goto } from "@sapper/app";
+
   let email = "";
   let password = "";
   let password2 = "";
@@ -7,7 +11,17 @@
   let showSuccess = false;
   let successMessage = "";
 
-  let changeMode = () => (loginMode = !loginMode);
+  let handleAuth = () => {
+    if (loginMode) {
+      return loginWithEmail();
+    }
+
+    signUpWithEmail();
+  };
+
+  let changeMode = () => {
+    loginMode = !loginMode;
+  };
 
   let createError = message => {
     showError = true;
@@ -72,22 +86,19 @@
   };
 
   let loginWithEmail = function() {
-    console.log(loginMode);
     authentication
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         resetForm();
         showSuccess = true;
         successMessage = "Logging in";
-        location.href = "/feed";
       })
       .catch(function(error) {
+        $user = false;
         let errorCode = error.code;
         handleErrors(errorCode);
       });
   };
-
-  export let loginMode;
 </script>
 
 <div class="card border-light mx-auto" style="max-width: 25rem;">
@@ -128,10 +139,7 @@
         </div>
       {/if}
       <div class="form-group">
-        <button
-          type="button"
-          on:click={loginMode ? loginWithEmail : signUpWithEmail}
-          class="btn btn-primary">
+        <button type="button" on:click={handleAuth} class="btn btn-primary">
            {loginMode ? 'Login' : 'Sign Up'}
         </button>
       </div>

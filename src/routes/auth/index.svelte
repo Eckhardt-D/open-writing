@@ -11,5 +11,5 @@
 <section
   class="d-flex align-items-center auth-container container-fluid bg-primary
   my-0">
-  <AuthForm loginMode="false" />
+  <AuthForm loginMode={false} />
 </section>

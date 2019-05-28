@@ -1,0 +1,1 @@
+{"version":3,"file":"client.74b292f4.js","sources":["../../../src/client.js"],"sourcesContent":["import * as sapper from \"@sapper/app\";\n\nsapper.start({\n  target: document.querySelector(\"#sapper\")\n});\n"],"names":["sapper.start","target","document","querySelector"],"mappings":"gGAEAA,EAAa,CACXC,OAAQC,SAASC,cAAc"}
